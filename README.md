@@ -28,7 +28,7 @@ We use the Stereo Camera Calibrator app in MATLAB for calibrating the camera and
 * Open the app from under the "APPS" tab
 * For calibration we require 20-25 stereo images of a chessboard pattern, taken from the to be calibrated camera from different angles.
 
-  ![](images/calibate24.png)
+  ![](images/calibrate24.jpg)
 * Divide the images into 2 and put all the images from the left camera in one folder and from the right camera in one folder. Remember to keep the name of each corresponding image the same.
 * Import the images into the app using the "Add Images" button
 * Click the "Calibrate" button
@@ -43,7 +43,8 @@ We use the Stereo Camera Calibrator app in MATLAB for calibrating the camera and
 ### Input
 * An image from a stereo camera is given as input
 
-  ![](images/depthsense12.png)
+  ![](images/depthsense12.jpg)
+
 ### Rectification, Disparity Map and the Point Cloud
 * Once the "stereoParams" has been imported run following command in the MATLAB command window
 
@@ -60,7 +61,7 @@ We use the Stereo Camera Calibrator app in MATLAB for calibrating the camera and
   ```
 Output -
 
-  ![](images/image1.png)
+  ![](images/image1.jpg)
 * The disparity map is computed and plotted using the following
 
   ```matlab
