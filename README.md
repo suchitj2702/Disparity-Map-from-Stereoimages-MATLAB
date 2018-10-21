@@ -1,4 +1,4 @@
-# Pointcloud_MATLAB
+# Disparity Maps and 3D Point Clouds from Stereo-Images
 
 This is a MATLAB workflow to generate a disparity map and consequently a 3D point cloud from the images from a stereo camera. Here the popular [StereoLabs ZED camera](https://www.stereolabs.com/zed/) was used to capture the stereo images.
 
