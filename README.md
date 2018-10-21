@@ -2,7 +2,7 @@
 
 This is a MATLAB workflow to generate a disparity map and consequently a 3D point cloud from the images from a stereo camera. Here the popular [StereoLabs ZED camera](https://www.stereolabs.com/zed/) was used to capture the stereo images.
 
-Though this specific camera comes with an API to compute the disparity map and 3D point cloud, the aim was make a generalized workflow that could be implemented to any stereo camera.
+Though this specific camera comes with an API to compute the disparity map and 3D point cloud, the purpose here is to make a generalized workflow that could be implemented to any stereo camera.
 
 ## Disparity Map and 3D Point Cloud
 
@@ -28,16 +28,16 @@ We use the Stereo Camera Calibrator app in MATLAB for calibrating the camera and
 * Open the app from under the "APPS" tab
 * For calibration we require 20-25 stereo images of a chessboard pattern, taken from the to be calibrated camera from different angles.
 
-  ![]("images/calibate24.png")
+  ![](images/calibate24.png)
 * Divide the images into 2 and put all the images from the left camera in one folder and from the right camera in one folder. Remember to keep the name of each corresponding image the same.
 * Import the images into the app using the "Add Images" button
 * Click the "Calibrate" button
 
-  ![]("images/callibration1.png")
+  ![](images/callibration1.png)
 
-  ![]("images/callibration2.png")
+  ![](images/callibration2.png)
 
-  ![]("images/callibration3.png")
+  ![](images/callibration3.png)
 * Once calibrated export the parameters into the workspace using "stereoParams" as the variable name
 
 ### Input
@@ -46,10 +46,12 @@ We use the Stereo Camera Calibrator app in MATLAB for calibrating the camera and
   ![](images/depthsense12.png)
 ### Rectification, Disparity Map and the Point Cloud
 * Once the "stereoParams" has been imported run following command in the MATLAB command window
+
   ```bash
   pointcloud.m
   ```
 * Rectified image is computed and displayed using the following
+
   ```matlab
   [LeftRect, RightRect] = rectifyStereoImages(left, right, stereoParams, 'OutputView', 'valid');
 
@@ -60,6 +62,7 @@ Output -
 
   ![](images/image1.png)
 * The disparity map is computed and plotted using the following
+
   ```matlab
   leftgray = rgb2gray(LeftRect);
   rightgray = rgb2gray(RightRect);
@@ -75,6 +78,7 @@ Output -
 
   ![](images/image2.png)
 * Finally, a 3D point cloud is made using the disparity map and saved as "pointcloud.ply" using the following
+
   ```matlab
   points3D = reconstructScene(disparitymap, stereoParams);
 
@@ -85,4 +89,4 @@ Output -
   ```
 ### Output
 
-Thus we generated a 3D point cloud out of an image from a stereo camera image. The 3D point cloud can be viewed with any 3D format supporting software such as MeshLab.
+Thus a 3D point cloud has been generated out of an image from a stereo camera image. The 3D point cloud can be viewed with any 3D format supporting software such as MeshLab.
